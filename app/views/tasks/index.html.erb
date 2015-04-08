@@ -1,4 +1,60 @@
-Your Tasks
-<br>
+<h1 class = "page-header">Your Tasks</h1>
 
-Community Tasks
+<div class="col-md-6">
+  <h3>House Chores</h3>
+  <% @user_tasks.each do |user_task| %>
+    <% if user_task.is_chore %>
+        <div class="col-md-6 chore">
+          <%= user_task.description %>
+          <% if user_task.is_popular %>
+            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+          <% end %>
+        </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="col-md-6">
+  <h3>Daily Routine Tasks</h3>
+  <% @user_tasks.each do |user_task| %>
+    <% if user_task.is_routine %>
+        <div class="col-md-6 routine">
+          <%= user_task.description %>
+          <% if user_task.is_popular %>
+            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+          <% end %>
+        </div>
+    <% end %>
+  <% end %>
+</div>
+
+<br><br><br>
+<h1 class = "page-header">Community Tasks</h1>
+
+<div class="col-md-6">
+  <h3>House Chores</h3>
+  <% @community_tasks.each do |community_task| %>
+    <% if community_task.is_chore %>
+        <div class="col-md-6 chore">
+          <%= community_task.description %>
+          <% if community_task.is_popular %>
+            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+          <% end %>
+        </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="col-md-6">
+  <h3>Daily Routine Tasks</h3>
+  <% @community_tasks.each do |community_task| %>
+    <% if community_task.is_routine %>
+        <div class="col-md-6 routine">
+          <%= community_task.description %>
+          <% if community_task.is_popular %>
+            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+          <% end %>
+        </div>
+    <% end %>
+  <% end %>
+</div>
