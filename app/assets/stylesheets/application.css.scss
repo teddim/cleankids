@@ -51,6 +51,43 @@
   color: #666666;
 }
 
+.panel>.panel-heading {
+  background-color: #0093df;
+  border-color: #ffffff;
+}
+
+.panel-title{
+  color: #ffffff;
+  background-color: #0093df
+}
+
+.panel-primary {
+  background-color: #ffffff;
+}
+
+.btn.btn-default.active {
+  background-color: #0093df;
+  color: #000000;
+}
+
+.btn.btn-default {
+  background-color: #9adcf8;
+
+}
+
+html, body, .container {
+    height: 90%;
+}
+.container {
+    display: table;
+    vertical-align: middle;
+
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
  /*
   * What follows is the result of much research on cross-browser styling.
   * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,

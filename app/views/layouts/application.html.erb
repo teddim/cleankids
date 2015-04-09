@@ -36,21 +36,33 @@
             <li> <%= link_to "Add a Task", new_task_path %></li>
             <li> <%= link_to "Create a Routine", new_routine_path %></li>
             <li> <%= link_to "Print Your Clean Kids Chart", routines_path %></li>
+            <% if current_user %>
+              <button type="button" class="btn btn-default pull-right">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <%= link_to "Sign Out", signout_path %>
+              </button>
+            <% end %>
+
           </ul>
-          <button type="button" class="btn btn-default navbar-btn navbar-right"><%= link_to "Sign-in to Create a Custom Task List", signin_path %></button>
         </div>
       </div>
     </nav>
     <div class="container">
 
       <a class="print-preview pull-right">Print this page</a>
+      <% if flash[:notice] %>
+        <div class="alert alert-warning col-md-6 col-md-offset-3">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
       <%= yield %>
 
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script charset="utf-8">
     $('#foo').prepend('Print this page');
     $('a.print-preview').printPreview();

@@ -4,6 +4,10 @@ class Task < ActiveRecord::Base
 
   validates_presence_of :description
 
+  CHORE = 'household chore'
+  ROUTINE = 'daily routine'
+  TASK_TYPE = [CHORE, ROUTINE]
+
   def is_chore
     if self.task_type.downcase == "chores"
       true

@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
 
+  before_action :authenticate_user, only: [:new]
+
   def index
 
     @community_tasks = Task.where(user_id: nil)
@@ -9,7 +11,7 @@ class TasksController < ApplicationController
   end
 
   def new
-
+    @task = Task.new
   end
 
 end

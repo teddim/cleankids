@@ -1,1 +1,28 @@
-Signup for an account to create a custom Clean Kids chart
+
+<div class="container">
+  <div class="vertical-center-row">
+
+    <div class="panel panel-primary col-md-6 col-md-offset-3">
+      <div class="panel-heading">
+        <h3 class="panel-title">Sign Up for an Account to Customize Your Chart</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for @user, url: signup_path do |f|  %>
+          <%= f.label :email, class:"control-label" %>
+          <%= f.text_field :email, class:"form-control"%>
+
+          <%= f.label :password , class:"control-label" %>
+          <%= f.password_field :password, class: "form-control" %>
+
+          <%= f.label :password_confirmation , class:"control-label" %>
+          <%= f.password_field :password_confirmation, class: "form-control" %>
+          <br>
+
+          <%= f.submit "Sign Up", class: "control-label" %>
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</div>
