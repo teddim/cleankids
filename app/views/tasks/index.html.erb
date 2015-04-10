@@ -1,15 +1,48 @@
+<%= form_for @chart, url: new_chart_path do |f| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">Instructions</div>
+    <div class="panel-body">
+      Click the tasks that you want to include in your chore chart and then click <button type="button" class="btn btn-default">Create Clean Kids Chart</button> to create the chart.
+    </div>
+  </div>
 
-<h2 class = "page-header"> Community Top of the Hour Tasks</h2>
-<div class="btn-group" data-toggle="buttons">
-  <% @community_tasks.each do |user_task| %>
-    <% if user_task.is_chore %>
-      <label class= "btn btn-default btn-lg col-md-3">
-        <input type="checkbox" autocomplete="on">
-        <%= user_task.description %>
-        <% if user_task.is_popular %>
-          <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
-        <% end %>
-      </label>
+  <br>
+  <h2 class = "page-header"> Community Top of the Hour Tasks</h2>
+  There are <%= @community_tasks.count %> tasks in the community bank.
+
+  <p>
+    Household Tasks
+  </p>
+  <div class="btn-group col-md-12" data-toggle="buttons">
+    <% @community_tasks.each do |user_task| %>
+      <% if user_task.is_chore %>
+        <label class= "btn btn-default btn-lg col-md-3">
+          <input type="checkbox" autocomplete="on">
+          <%= user_task.description %>
+          <% if user_task.is_popular %>
+            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+          <% end %>
+        </label>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+
+  <p>
+  Daily Routine Tasks
+  </p>
+
+  <div class="btn-group col-md-12" data-toggle="buttons">
+    <% @community_tasks.each do |user_task| %>
+      <% if user_task.is_routine %>
+        <label class= "btn btn-default btn-lg col-md-3">
+          <input type="checkbox" autocomplete="on">
+          <%= user_task.description %>
+          <% if user_task.is_popular %>
+            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+          <% end %>
+        </label>
+      <% end %>
+    <% end %>
 </div>
+
+<% end %>
