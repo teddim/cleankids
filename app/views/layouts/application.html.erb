@@ -31,25 +31,28 @@
         <div class="navbar-header">
           <b><%= link_to "CLEAN KIDS", root_path, class: "navbar-brand logo" %></b>
 
-          <ul class="nav navbar-nav">
+
+        </div>
+        <div class="row">
+          <ul class="nav navbar-nav col-md-10">
             <li> <%= link_to "See All Tasks",tasks_path %></li>
             <li> <%= link_to "Add a Task", new_task_path %></li>
-            <li> <%= link_to "Create a Routine", new_routine_path %></li>
-            <li> <%= link_to "Print Your Clean Kids Chart", routines_path %></li>
+            <li> <%= link_to "Print Your Clean Kids Chart", charts_path %></li>
+            <li class = "nav navbar-nav navbar-right">
             <% if current_user %>
-              <button type="button" class="btn btn-default pull-right">
+              <button type="button" class="btn btn-default">
                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                 <%= link_to "Sign Out", signout_path %>
               </button>
             <% end %>
-
+          </li>
           </ul>
+
         </div>
       </div>
     </nav>
     <div class="container">
 
-      <a class="print-preview pull-right">Print this page</a>
       <% if flash[:notice] %>
         <div class="alert alert-warning col-md-6 col-md-offset-3">
           <%= flash[:notice] %>
@@ -57,15 +60,44 @@
       <% end %>
 
       <%= yield %>
+<div class="">
 
+</div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script charset="utf-8">
     $('#foo').prepend('Print this page');
     $('a.print-preview').printPreview();
     </script>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <b><%= link_to "CLEAN KIDS", root_path, class: "navbar-brand logo" %></b>
+
+
+        </div>
+        <div class="row">
+          <ul class="nav navbar-nav col-md-10">
+            <li> <%= link_to "See All Tasks",tasks_path %></li>
+            <li> <%= link_to "Add a Task", new_task_path %></li>
+            <li> <%= link_to "Print Your Clean Kids Chart", charts_path %></li>
+            <li class = "nav navbar-nav navbar-right">
+            <% if current_user %>
+              <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <%= link_to "Sign Out", signout_path %>
+              </button>
+            <% end %>
+          </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+
   </body>
 </html>
