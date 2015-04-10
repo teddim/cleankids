@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
-  resources :tasks, only: [:index, :new]
-  resources :routines, only: [:index, :new]
+  resources :tasks, only: [:index, :new, :create]
+  resources :charts, only: [:index, :new, :create]
 
   get 'signin' => 'authentications#new', as: :signin
   post 'signin' => 'authentications#create'

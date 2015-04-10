@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+
+chores = Chart.create(name: 'Teddi\'s Clean Kids' , user_id:1, task_ids: [6,7,8])
+
 tasks = Task.create([
                     {description: 'Brush my teeth', task_type: 'daily routine'},
                     {description: 'Get dressed' , task_type: 'daily routine'},
