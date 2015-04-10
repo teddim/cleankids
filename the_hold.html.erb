@@ -1,0 +1,40 @@
+<p>
+  <h2 class = "page-header"> Your Custom Household Tasks</h2>
+</p>
+<p>
+  You have created <%= @user_tasks.count %> custom tasks.
+</p>
+
+
+Household Tasks that you created:
+<div class="btn-group col-md-12" data-toggle="buttons">
+  <% @user_tasks.each do |user_task| %>
+    <% if user_task.is_chore %>
+      <label class= "btn btn-default btn-lg col-md-3">
+        <input type="checkbox" autocomplete="on">
+        <%= user_task.description %>
+        <% if user_task.is_popular %>
+          <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+        <% end %>
+      </label>
+    <% end %>
+  <% end %>
+</div>
+
+
+<br><br><br>
+
+Daily Routine Tasks that you created:
+<div class="btn-group col-md-12" data-toggle="buttons">
+  <% @user_tasks.each do |user_task| %>
+    <% if user_task.is_routine %>
+      <label class= "btn btn-default btn-lg col-md-3">
+        <input type="checkbox" autocomplete="on">
+        <%= user_task.description %>
+        <% if user_task.is_popular %>
+          <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+        <% end %>
+      </label>
+    <% end %>
+  <% end %>
+</div>
