@@ -37,7 +37,7 @@
           <ul class="nav navbar-nav col-md-10">
             <li> <%= link_to "See All Tasks",tasks_path %></li>
             <li> <%= link_to "Add a Task", new_task_path %></li>
-            <li> <%= link_to "Print Your Clean Kids Chart", charts_path %></li>
+            <li> <%= link_to "Your Clean Kids Chart", charts_path %></li>
             <li class = "nav navbar-nav navbar-right">
             <% if current_user %>
               <button type="button" class="btn btn-default">
@@ -53,13 +53,13 @@
     </nav>
     <div class="container">
 
+
+      <%= yield %>
       <% if flash[:notice] %>
         <div class="alert alert-warning col-md-6 col-md-offset-3">
           <%= flash[:notice] %>
         </div>
       <% end %>
-
-      <%= yield %>
 <div class="extra-space">
 
 </div>
@@ -84,7 +84,7 @@
           <ul class="nav navbar-nav col-md-10">
             <li> <%= link_to "See All Tasks",tasks_path %></li>
             <li> <%= link_to "Add a Task", new_task_path %></li>
-            <li> <%= link_to "Print Your Clean Kids Chart", charts_path %></li>
+            <li> <%= link_to "Your Clean Kids Chart", charts_path %></li>
             <li class = "nav navbar-nav navbar-right">
             <% if current_user %>
               <button type="button" class="btn btn-default">

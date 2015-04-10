@@ -1,18 +1,22 @@
 
-
-<%= form_for @chart do |f| %>
-<% for task in Task.all %>
-<div>
-<%= check_box_tag "chart[task_ids][]", task.id,
-              @chart.tasks.include?(task) %>
-<%= task.description %>
+<div class="panel panel-default">
+  <div class="panel-heading">Tasks</div>
+  <div class="panel-body">
+    <%= form_for @chart do |f| %>
+    <% for task in Task.all %>
+    <div class = "col-md-4">
+    <%= check_box_tag "chart[task_ids][]", task.id,
+                  @chart.tasks.include?(task) %>
+    <%= task.description %>
+    </div>
+    <% end %>
+    <br><br>
+    <p>
+    <%= f.submit 'Create Clean Kids Chart' %>
+    </p>
+    <% end %>
+  </div>
 </div>
-<% end %>
-<p>
-<%= f.submit 'Create' %>
-</p>
-<% end %>
-
 
   <div class="panel panel-default">
     <div class="panel-heading">Instructions</div>
