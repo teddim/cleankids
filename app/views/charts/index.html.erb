@@ -1,0 +1,31 @@
+
+<h1 class = "page-header">Your Clean Kids Chart</h1>
+
+<div class="col-md-12">
+
+  <div class = "col-md-6">
+    <h2>Morning Routine</h2>
+    <% @chart.tasks.each do |task| %>
+      <%= task.description %>
+      <br>
+    <% end %>
+  </div>
+
+  <div class = "col-md-6">
+    <h2>Evening Routine</h2>
+    <% @chart.tasks.each do |task| %>
+      <%= task.description %>
+      <br>
+    <% end %>
+  </div>
+
+  <div class = "col-md-12">
+    <h2>Daily Chore Ideas</h2>
+    <% @chart.tasks.each do |task| %>
+      <%= task.description %>
+      <br>
+    <% end %>
+  </div>
+
+
+</div>

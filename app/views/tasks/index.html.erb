@@ -1,4 +1,19 @@
-<%= form_for @chart, url: new_chart_path do |f| %>
+
+
+<%= form_for @chart do |f| %>
+<% for task in Task.all %>
+<div>
+<%= check_box_tag "chart[task_ids][]", task.id,
+              @chart.tasks.include?(task) %>
+<%= task.description %>
+</div>
+<% end %>
+<p>
+<%= f.submit 'Create' %>
+</p>
+<% end %>
+
+
   <div class="panel panel-default">
     <div class="panel-heading">Instructions</div>
     <div class="panel-body">
@@ -44,5 +59,3 @@
       <% end %>
     <% end %>
 </div>
-
-<% end %>
