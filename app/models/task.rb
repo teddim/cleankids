@@ -6,8 +6,9 @@ class Task < ActiveRecord::Base
   validates_presence_of :description
 
   CHORE = 'household chore'
-  ROUTINE = 'daily routine'
-  TASK_TYPE = [CHORE, ROUTINE]
+  MROUTINE = 'morning routine'
+  EROUTINE = 'evening routine'
+  TASK_TYPE = [CHORE, MROUTINE, EROUTINE]
 
   def is_chore
     if self.task_type.downcase == "chores" || self.task_type.downcase == "household chore"
@@ -19,7 +20,19 @@ class Task < ActiveRecord::Base
   end
 
   def is_routine
-    if self.task_type.downcase == "daily routine"
+    self.is_morning_routine || self.is_evening_routine
+  end
+
+  def is_morning_routine
+    if self.task_type.downcase == "morning routine"
+      true
+    else
+      false
+    end
+  end
+
+  def is_evening_routine
+    if self.task_type.downcase == "evening routine"
       true
     else
       false

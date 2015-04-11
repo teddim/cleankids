@@ -3,17 +3,44 @@
   <div class="panel-heading">Tasks</div>
   <div class="panel-body">
     <%= form_for @chart do |f| %>
-    <% for task in Task.all %>
-    <div class = "col-md-4">
-    <%= check_box_tag "chart[task_ids][]", task.id,
-                  @chart.tasks.include?(task) %>
-    <%= task.description %>
-    </div>
-    <% end %>
-    <br><br>
-    <p>
-    <%= f.submit 'Create Clean Kids Chart' %>
-    </p>
+      <span class = "mroutine">
+        Morning Routine
+      </span> |
+      <span class = "eroutine">
+        Evening Routine
+      </span> |
+      <span class = "chore">
+        Household Chores
+      </span>
+      <br>
+      <% for task in Task.all %>
+        <% if task.is_morning_routine %>
+          <% color = "mroutine" %>
+        <% elsif task.is_evening_routine %>
+          <% color = "eroutine" %>
+        <% else %>
+          <% color = "chore" %>
+        <% end %>
+        <div class = <%= color %>>
+          <div class="col-md-4">
+            <%= check_box_tag "chart[task_ids][]", task.id, @chart.tasks.include?(task) %>
+            <%= task.description %>
+          </div>
+        </div>
+      <% end %>
+      <br><br>
+      <div class="col-md-12">
+        <div class = "col-md-4">
+          <%= f.label :name, "Chart Name" %>
+          <%= f.text_field :name %>
+        </div>
+        <div class = "col-md-4">
+          <%= f.submit 'Create Clean Kids Chart' %>
+        </div>
+        <div class="col-md-8">
+
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

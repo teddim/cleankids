@@ -47,8 +47,12 @@
   color: #0000000;
 }
 
-.routine {
-  color: #666666;
+.mroutine {
+  color: #0093df;
+}
+
+.eroutine {
+  color: #ffd700;
 }
 
 .panel>.panel-heading {
@@ -91,6 +95,11 @@ html, body, .container {
 .extra-space {
   margin-bottom: 100px;
 }
+
+.chore-color {
+  color: #9adcf8;
+}
+
  /*
   * What follows is the result of much research on cross-browser styling.
   * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,

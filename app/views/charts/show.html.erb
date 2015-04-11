@@ -1,0 +1,34 @@
+
+<h1 class = "page-header">Chart: <%= @chart.name %></h1>
+
+
+<div class="col-md-12">
+
+  <div class = "col-md-6">
+    <h2>Morning Routine</h2>
+    <% @morning_tasks.each do |task| %>
+      <%= task.description %>
+      <br>
+    <% end %>
+  </div>
+
+  <div class = "col-md-6">
+    <h2>Evening Routine</h2>
+    <% @evening_tasks.each do |task| %>
+      <%= task.description %>
+      <br>
+    <% end %>
+  </div>
+
+  <div class = "col-md-6">
+    <h2>Hourly Task Ideas</h2>
+    <% @hourly_tasks.each do |task| %>
+      <%= task.description %>
+      <br>
+    <% end %>
+  </div>
+
+
+
+
+</div>

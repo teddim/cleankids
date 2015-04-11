@@ -1,9 +1,15 @@
 class ChartsController < ApplicationController
 
   def index
-    @chart = Chart.first
-    @chart2 = Chart.find(4)
-    @chart3 = Chart.find(5)
+    @charts = Chart.where(user_id: current_user.id)
+
+  end
+
+  def show
+    @chart = Chart.find(params[:id])
+    @morning_tasks = @chart.tasks.where(task_type: "morning routine")
+    @evening_tasks = @chart.tasks.where(task_type: "evening routine")
+    @hourly_tasks = @chart.tasks.where(task_type: "household chore")
 
   end
 
@@ -14,6 +20,7 @@ class ChartsController < ApplicationController
   def create
     chart = Chart.new()
     chart.user_id = current_user.id
+    chart.name = params[:chart][:name]
     chart.tasks = []
     tasks_array = params[:chart][:task_ids]
     tasks_array.each do |task|
@@ -31,6 +38,7 @@ class ChartsController < ApplicationController
   private
 
   def chart_params
+    require.params(:chart).permit(:name)
     params[:chart][:task_ids] ||= []
   end
 end
