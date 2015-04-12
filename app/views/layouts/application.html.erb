@@ -39,7 +39,13 @@
             <li> <%= link_to "Add a Task", new_task_path %></li>
             <li> <%= link_to "Your Clean Kids Chart", charts_path %></li>
             <li class = "nav navbar-nav navbar-right">
-            <% if current_user %>
+            <% if current_user.email == "guest@example.com" %>
+              Guest User
+              <button type="button" class="btn btn-default">
+                <span class="" aria-hidden="true"></span>
+                <%= link_to "Sign In", signin_path %>
+              </button>
+            <% else %>
               <button type="button" class="btn btn-default">
                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                 <%= link_to "Sign Out", signout_path %>
@@ -47,7 +53,6 @@
             <% end %>
           </li>
           </ul>
-
         </div>
       </div>
     </nav>
@@ -89,12 +94,7 @@
             <li> <%= link_to "Add a Task", new_task_path %></li>
             <li> <%= link_to "Your Clean Kids Chart", charts_path %></li>
             <li class = "nav navbar-nav navbar-right">
-            <% if current_user %>
-              <button type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                <%= link_to "Sign Out", signout_path %>
-              </button>
-            <% end %>
+          
           </li>
           </ul>
 

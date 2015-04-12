@@ -1,5 +1,11 @@
 
-<h1 class = "page-header">Your Clean Kids Charts</h1>
+<h1 class = "page-header">
+  <% if current_user.email == "guest@example.com" %>
+    Sample Clean Kids Charts
+  <% else %>
+  Your Clean Kids Charts
+  <% end %>
+  </h1>
 
 <% @charts.each do |chart| %>
   <%= link_to chart.name, chart_path(chart) %>

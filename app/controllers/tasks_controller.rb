@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 
-  before_action :authenticate_user, only: [:new]
+  before_action :authenticate_user, only: [:new, :create]
 
   def index
 
@@ -8,6 +8,8 @@ class TasksController < ApplicationController
     @community_tasks = @community_tasks.order(:task_type)
     @user_tasks = Task.where(user_id: current_user.id)
     @chart = Chart.new
+    @task = Task.new
+    
   end
 
   def new

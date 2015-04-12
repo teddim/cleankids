@@ -1,5 +1,8 @@
 class ChartsController < ApplicationController
 
+  before_action :authenticate_user, only: [:new, :show]
+
+
   def index
     @charts = Chart.where(user_id: current_user.id)
 
