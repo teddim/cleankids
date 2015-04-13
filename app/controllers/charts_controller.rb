@@ -12,7 +12,7 @@ class ChartsController < ApplicationController
     @chart = Chart.find(params[:id])
     @morning_tasks = @chart.tasks.where(task_type: "morning routine")
     @evening_tasks = @chart.tasks.where(task_type: "evening routine")
-    @hourly_tasks = @chart.tasks.where(task_type: "household chore")
+    @hourly_tasks = @chart.tasks.where(task_type: "household chores")
 
   end
 
