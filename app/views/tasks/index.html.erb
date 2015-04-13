@@ -2,12 +2,26 @@
 <div class="panel panel-default">
   <div class="panel-heading">Instructions</div>
   <div class="panel-body">
-    Click the tasks that you want to include in your chore chart and then click <button type="button" class="btn btn-default">Create Clean Kids Chart</button> to create the chart.
+    Step 1 (optional): Create new tasks by entering a description for each one below. <br>
+    Step 2: Select the tasks for your chart by checking the boxes in the next panel and then click the <em>Create Clean Kids Chart</em> button.
+    <br>
+    <br>
+      <div class="form-group form-inline">
+        <%= form_for @task do |t| %>
+          <%= t.label :description, class:"control-label" %>
+          <%= t.text_field :description, class:"form-control" %>
+
+          <%= t.label :task_type, class:"control-label"%>
+          <%= t.collection_select(:task_type, Task::TASK_TYPE, :to_s, :capitalize,{}, {class: 'form-control'}) %>
+          <%= t.submit class: "btn btn-primary"%>
+        <% end %>
+      </div>
   </div>
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-heading">Tasks</div>
+  <div class="panel-heading">Tasks
+  </div>
   <div class="panel-body">
     <%= form_for @chart do |f| %>
       <span class = "mroutine">
@@ -20,7 +34,7 @@
         Household Chores
       </span>
       <br>
-      <% for task in Task.all %>
+      <% for task in Task.all.order(:task_type) %>
         <% if task.is_morning_routine %>
           <% color = "mroutine" %>
         <% elsif task.is_evening_routine %>
@@ -35,18 +49,13 @@
           </div>
         </div>
       <% end %>
-      <br><br>
-      <div class="col-md-12">
-        <div class = "col-md-4">
-          <%= f.label :name, "Chart Name" %>
-          <%= f.text_field :name %>
-        </div>
-        <div class = "col-md-4">
-          <%= f.submit 'Create Clean Kids Chart' %>
-        </div>
-        <div class="col-md-8">
 
-        </div>
+      <div class="form-inline col-md-12">
+        <br>
+          <%= f.label :name, "Chart Name", class: "control-label" %>
+          <%= f.text_field :name , class: "form-control"%>
+
+          <%= f.submit 'Create Clean Kids Chart', class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
@@ -57,21 +66,3 @@ $(function () {
 $('[data-toggle="popover"]').popover()
 })
 </script>
-
-<div class="col-md-6 col-md-offset-3">
-  <h2 class = "page-header">Add a Task</h2>
-<%= form_for @task do |f| %>
-  <%= f.label :description, class:"control-label" %>
-  <%= f.text_field :description, class:"form-control" %>
-
-  <%= f.label :task_type, class:"control-label"%>
-
-    <div data-container="body" data-toggle="popover" data-placement="right" data-content="This is my popover information", data-trigger="hover">
-    <%= f.collection_select(:task_type, Task::TASK_TYPE, :to_s, :capitalize,{}, {class: 'form-control'}) %>
-</div>
-
-  <br>
-
-  <%= f.submit class: "control-label" %>
-<% end %>
-</div>

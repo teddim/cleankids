@@ -36,7 +36,6 @@
         <div class="row">
           <ul class="nav navbar-nav col-md-10">
             <li> <%= link_to "Create a Chart",tasks_path %></li>
-            <li> <%= link_to "Add a Task", new_task_path %></li>
             <li> <%= link_to "Your Clean Kids Chart", charts_path %></li>
             <li class = "nav navbar-nav navbar-right">
             <% if current_user.email == "guest@example.com" %>
@@ -91,10 +90,9 @@
         <div class="row">
           <ul class="nav navbar-nav col-md-10">
             <li> <%= link_to "Create a Chart",tasks_path %></li>
-            <li> <%= link_to "Add a Task", new_task_path %></li>
             <li> <%= link_to "Your Clean Kids Chart", charts_path %></li>
             <li class = "nav navbar-nav navbar-right">
-          
+
           </li>
           </ul>
 

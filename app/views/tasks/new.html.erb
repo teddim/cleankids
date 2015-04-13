@@ -11,8 +11,6 @@ $('[data-toggle="popover"]').popover()
   <%= f.text_field :description, class:"form-control" %>
 
   <%= f.label :task_type, class:"control-label"%>
-
-    <div data-container="body" data-toggle="popover" data-placement="right" data-content="This is my popover information", data-trigger="hover">
     <%= f.collection_select(:task_type, Task::TASK_TYPE, :to_s, :capitalize,{}, {class: 'form-control'}) %>
 </div>
 

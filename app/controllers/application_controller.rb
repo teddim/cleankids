@@ -14,15 +14,15 @@ class ApplicationController < ActionController::Base
     if session[:user_id] == nil
       guest_user
       flash[:notice] = "You are currently a guest, if you'd like to customize a chart, sign in."
-      
+
     end
     User.find_by(id: session[:user_id])
   end
 
-  def authenticate_user
-    unless current_user
-      flash[:notice] = "You are currently a guest, if you'd like to customize a chart, sign in."
-    end
-  end
+  # def authenticate_user
+  #   unless current_user
+  #     flash[:notice] = "You are currently a guest, if you'd like to customize a chart, sign in."
+  #   end
+  # end
 
 end
