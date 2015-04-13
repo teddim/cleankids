@@ -10,7 +10,7 @@ class AuthenticationsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      flash[:error] = "Email / Password combination is invalid"
+      flash[:notice] = "Email / Password combination is invalid"
       render :new
     end
   end

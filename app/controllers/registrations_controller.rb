@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Thank you for signing up."
-      redirect_to new_task_path
+      redirect_to tasks_path
     elsif @user.errors.any?
       flash[:notice] = @user.errors.full_messages.first
       render :new
